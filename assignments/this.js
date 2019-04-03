@@ -37,8 +37,23 @@ me.getName() // Moses
 
 // Principle 3
 
-// code example for New Binding
+// code example for Explicit Binding
+const notMe = {
+    name: 'Like, Tyler or something',
+    hasSwag: 'probably not',
+}
+
+const getNameBound = getName.bind(notMe)
+getNameBound() // 'Like, Tyler or something'
+
 
 // Principle 4
 
-// code example for Explicit Binding
+// code example for New Binding
+function Person(name, hasSwag) {
+    this.name = name
+    this.hasSwag = hasSwag
+}
+
+const moses = new Person('Moses', 'yes, obviously')
+console.log(moses) // Person { name: 'Moses', hasSwag: 'yes, obviously' }
