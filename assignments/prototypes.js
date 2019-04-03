@@ -49,7 +49,7 @@ const defaultStats = {
 }
 
 function CharacterStats(stats=defaultStats) {
-  GameObject.call(stats) // super
+  GameObject.call(this, stats) // super
   this.healthPoints = stats.healthPoints // unique to CharacterStats objects
 }
 
@@ -78,7 +78,7 @@ const defaultAttributes = {
 }
 
 function Humanoid(attributes=defaultAttributes) {
-  CharacterStats.call(attributes)
+  CharacterStats.call(this, attributes)
   const { team, weapons, language } = attributes
   this.team = team
   this.weapons = weapons
