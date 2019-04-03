@@ -165,14 +165,19 @@ Humanoid.prototype.greet = function() {
   function Villain(attributes) {
     Humanoid.call(this, attributes)
     this.alliance = 'The Dark Lord'
+    this.basicAttack = attributes.basicAttack || { name: 'poison', power: 1 }
+    this.specialAttack = attributes.specialAttack || { name: 'Cersei-Lannister poison bomb!', power: 3 }
   }
 
   function Hero(attributes) {
     Humanoid.call(this, attributes)
     this.alliance = 'The Defenders of Light'
+    this.basicAttack = attributes.basicAttack || { name: 'heroic punch', power: 1 }
+    this.specialAttack = attributes.specialAttack || { name: 'heroic roundhouse kick!', power: 3 }
   }
 
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   Villain.prototype = Humanoid.prototype
+
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   Hero.prototype = Humanoid.prototype
