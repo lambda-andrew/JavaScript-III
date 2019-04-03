@@ -13,7 +13,7 @@
 
 // code example for Window Binding
 function doesNotHaveName() {
-  console.log(`What is global binding or Window Binding!`, this);
+  // console.log(`What is global binding or Window Binding!`, this);
 }
 doesNotHaveName();
 
@@ -34,7 +34,7 @@ video.play();
 
 // code example for New Binding
 function Video(title) {
-  this.title = title;
+  this.newTitle = title;
   console.log(`What is New Binding `, this);
 }
 
@@ -44,3 +44,18 @@ const urVideo = new Video("Evan Almighty!");
 // Principle 4
 
 // code example for Explicit Binding
+
+Video.prototype.play = function() {
+  return `Playing movie ${this.title}`;
+};
+
+console.log(myVideo.play());
+
+let movies = ["Beautiful Minds", "Avengers", "Up"];
+
+function videoRecord(movie1, movie2) {
+  console.log(`Recorded ${this.newTitle} along with ${movie1}, ${movie2}`);
+}
+
+videoRecord.call(myVideo, movies[1], movies[2]);
+videoRecord.apply(urVideo, movies);
