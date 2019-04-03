@@ -176,8 +176,23 @@ Humanoid.prototype.greet = function() {
     this.specialAttack = attributes.specialAttack || { name: 'heroic roundhouse kick!', power: 3 }
   }
 
+  function attack(attackType=this.basicAttack, target=null) {
+    const targetIsDead = target.healthPoints <= 0 
+
+    if (!target) return `${this.name} attacked with ${this[attackType].name} and missed`
+    else if(targetIsDead) {
+      return `Oh no, ${target.name} turned into a horse! ${this.name} is literally beating a dead horse!`
+    }
+    else {
+      target.healthPoints -= this[basicAttack].power
+      return `${this.name} attacked ${target.name} with ${this[attackType].name}. Damage dealt: ${this[attackType].power}.`
+    }
+  }   
+
   // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
   Villain.prototype = Humanoid.prototype
+  Villain.prototype.attack = attack
 
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   Hero.prototype = Humanoid.prototype
+  Hero.prototype.attack = attack
