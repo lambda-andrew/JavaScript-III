@@ -14,7 +14,7 @@
 // Principle 1
 
 // code example for Window Binding
-// console.log(this)
+//console.log(this)
 
 // Principle 2
 
@@ -25,7 +25,7 @@ let obj = {
     return this.values[0] = this.values[1]
   }
 }
-// console.log(obj.sum())
+//console.log(obj.sum())
 
 // Principle 3
 
@@ -36,10 +36,10 @@ function Person(name) {
 }
 let john = new Person("John")
 let sue = new Person("Sue")
-// console.log(john.speak())
-// console.log(sue.speak())
+//console.log(john.speak())
+//console.log(sue.speak())
 
 // Principle 4
 
 // code example for Explicit Binding
-console.log(sue.speak.apply(john))
+//console.log(sue.speak.apply(john))
