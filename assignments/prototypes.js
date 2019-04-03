@@ -16,7 +16,17 @@
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-function GameObject({createdAt, name, dimensions}) {
+const defaultGameConfig = {
+  createdAt: Date.now(),
+  name: 'unnamed',
+  dimensions: {
+    length: 5,
+    width: 5,
+    height: 7
+  }
+}
+
+function GameObject({createdAt, name, dimensions}=defaultGameConfig) {
   this.createdAt = createdAt,
   this.name = name,
   this.dimensions = dimensions
@@ -33,7 +43,12 @@ GameObject.prototype.destroy = function() {
   * should inherit destroy() from GameObject's prototype
 */
 
-function CharacterStats(stats) {
+const defaultStats = {
+  ...defaultGameConfig,
+  healthPoints: 10
+}
+
+function CharacterStats(stats=defaultStats) {
   GameObject.call(stats) // super
   this.healthPoints = stats.healthPoints // unique to CharacterStats objects
 }
@@ -51,7 +66,15 @@ CharacterStats.prototype = Object.create(GameObject.prototype)
   * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(attributes) {
+const defaultAttributes = {
+  ...defaultGameConfig,
+  ...defaultStats,
+  team: 'Blue',
+  weapons: ['fists'],
+  language: 'English',
+}
+
+function Humanoid(attributes=defaultAttributes) {
   CharacterStats.call(attributes)
   const { team, weapons, language } = attributes
   this.team = team
