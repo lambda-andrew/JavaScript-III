@@ -85,7 +85,7 @@ function Humanoid(attributes=defaultAttributes) {
   this.language = language
 }
 
-Humanoid.prototype = Object.create(GameObject.prototype)
+Humanoid.prototype = Object.create(CharacterStats.prototype)
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}`
 }
