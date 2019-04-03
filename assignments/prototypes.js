@@ -185,7 +185,8 @@ Humanoid.prototype.greet = function() {
     }
     else {
       target.healthPoints -= this[basicAttack].power
-      return `${this.name} attacked ${target.name} with ${this[attackType].name}. Damage dealt: ${this[attackType].power}.`
+      const confirmation = `${this.name} attacked ${target.name} with ${this[attackType].name}. Damage dealt: ${this[attackType].power}.`
+      target.healthPoints <= 0 && target.destroy()
     }
   }   
 
@@ -193,6 +194,9 @@ Humanoid.prototype.greet = function() {
   Villain.prototype = Humanoid.prototype
   Villain.prototype.attack = attack
 
-  // * Create two new objects, one a villain and one a hero and fight it out with methods!
   Hero.prototype = Humanoid.prototype
   Hero.prototype.attack = attack
+
+  // * Create two new objects, one a villain and one a hero and fight it out with methods!
+  
+
