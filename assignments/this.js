@@ -33,18 +33,49 @@
 * write out a code example of each explanation above
 */
 
-// Principle 1
+// Principle 1 - Window / Global Binding
 
-// code example for Window Binding
+    function doSomething(thing){
+    console.log(this); // console shows everything in the window object
+    return `doing the ${thing}`
+    }
+    console.log(doSomething('dance'));
 
-// Principle 2
+// Principle 2 - Implicit
 
-// code example for Implicit Binding
+    const students = {
+        class: 'Web19',
+        phrase: function(name) {
+            console.log(`${name} is in ${this.class} and loves to code!`);
+        }
+    }
+    console.log(students.phrase("Preston"));
 
-// Principle 3
+// Principle 3 - New Binding
 
-// code example for New Binding
+    function Fruits(fruit){
+        this.noise = 'mmmmm';
+        this.fruit = fruit;
+        this.saying = function(state) {
+            console.log(`${this.noise} ${this.fruit} ${state}`);
+            console.log(this); // refers to the Fruits function
+        };
+    }
 
-// Principle 4
+    const banana = new Fruits('banana');
+    const mango = new Fruits('mango');
 
-// code example for Explicit Binding
+    console.log(mango.saying('is good'));
+    console.log(banana.saying('is great'));
+
+// Principle 4 - Explicit Binding
+
+    const squash = {
+            "veg": "squash"
+    }
+
+    function vegetable(a,c){
+        return `${a} its a ${this.veg} ${c}`;  //this refers to the const squash key "veg"
+    }
+    
+    console.log(vegetable.call(squash, 'eww', 'gross' ));
