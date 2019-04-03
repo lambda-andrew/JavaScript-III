@@ -25,12 +25,12 @@ sayJs();
 // Principle 2
 // code example for Implicit Binding
 const jscript= {
-  isapain: 'is a pain in the ass...',
+  isapain: 'is a pain in the ass..',
     say() {
     console.log(`JavaScript ${this.isapain}`);
   },
   sayWhat: {
-    really: 'No... Really',
+    really: 'No.. Really',
     say() {
       console.log(`${this.really}`);
     }
@@ -50,7 +50,7 @@ function JavaScript(sucks) {
   };
 }
 
-const java = new JavaScript('Newman');
+const java = new JavaScript('JavaScript ');
 const script = new JavaScript('is a pain in the ass...');
 
 script.speak();
@@ -61,14 +61,14 @@ script.speak();
 function js (j1, j2, j3) {
   console.log(
     `${this.name} ${j1} ${j2} ${j3}`
-  )
+  );
 }
 
 const jS = {
   name: 'JavaScript',
-}
+};
 
-const context = ['is a', 'pain in', 'the ass....']
+const context = ['is a', 'pain in', 'the ass....'];
 
-const newFn = js.bind(jS, context[0], context[1], context[2])
-newFn()
+const newFn = js.bind(jS, context[0], context[1], context[2]);
+newFn();
