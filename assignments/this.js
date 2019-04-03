@@ -14,10 +14,26 @@
 // Principle 1
 
 // code example for Window Binding
+function getName() {
+    return this.name 
+}
+
+getName() // undefined
+
 
 // Principle 2
 
 // code example for Implicit Binding
+const me = {
+    name: 'Moses',
+    hasSwag: true, // duh, lots
+    getName() {
+        return this.name
+    }
+}
+
+me.getName() // Moses
+
 
 // Principle 3
 
