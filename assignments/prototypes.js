@@ -184,9 +184,9 @@ Humanoid.prototype.greet = function() {
       return `Oh no, ${target.name} turned into a horse! ${this.name} is literally beating a dead horse!`
     }
     else {
-      target.healthPoints -= this[basicAttack].power
+      target.healthPoints -= this[attackType].power
       const confirmation = `${this.name} attacked ${target.name} with ${this[attackType].name}. Damage dealt: ${this[attackType].power}.`
-      target.healthPoints <= 0 && target.destroy()
+      return (target.healthPoints <= 0) ? target.destroy() : confirmation
     }
   }   
 
@@ -199,4 +199,47 @@ Humanoid.prototype.greet = function() {
 
   // * Create two new objects, one a villain and one a hero and fight it out with methods!
   
+const batman = new Hero({
+  createdAt: 'March 30, 1939',
+  name: 'Bruce Wayne',
+  alias: 'The Dark Knight',
+  dimensions: {
+    height: 6,
+    width: 4,
+    length: 4
+  },
+  healthPoints: 12,
+  team: 'Batman and Robin', 
+  language: 'Low frequency English',
+  weapons: ['Battarang', 'Muay Thai', 'Tae-Kwon-Do', 'Krav Maga', 'Smoke bomb'],
+  whip: 'Batmobile'
+})
 
+const theJoker = new Villain({
+  createdAt: 'March 30, 1939',
+  name: 'Heath Ledger',
+  alias: 'The Joker', // frfr; he was the GOAT 
+  dimensions: {
+    height: 5,
+    width: 2,
+    length: 6
+  },
+  healthPoints: 9,
+  team: 'Chaos',
+  language: 'English',
+  weapons: ['grenades', 'C4', 'disappearing pencils', 'pistol', 'machine gun'],
+  whip: 'school bus'
+})
+
+console.log(batman.attack('basicAttack', theJoker))
+console.log(theJoker.attack('specialAttack', batman))
+console.log(batman.attack('specialAttack', theJoker))
+console.log(theJoker.attack('basicAttack', batman))
+console.log(batman.attack('basicAttack', theJoker))
+console.log(theJoker.attack('basicAttack', batman))
+console.log(theJoker.attack('basicAttack', batman))
+console.log(batman.attack('basicAttack', theJoker))
+console.log(theJoker.attack('specialAttack', batman))
+console.log(theJoker.attack('basicAttack', batman))
+console.log(theJoker.attack('specialAttack', batman))
+console.log(theJoker.attack('basicAttack', batman))
