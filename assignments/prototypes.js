@@ -42,8 +42,7 @@ function CharacterStats(characterStatsAttributes) {
 }
 CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function() {
-  this.healthPoints--;
-  return `${this.name} took damage. HealthPoints --> ${this.healthPoints}`;
+  return `${this.name} took damage.`;
 };
 
 /*
@@ -137,79 +136,3 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result
 // * in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
-function Villain(villainAttributes) {
-  Humanoid.call(this, villainAttributes);
-}
-Villain.prototype = Object.create(Humanoid.prototype);
-Villain.prototype.useShield = function() {
-  console.log(`Current health points for ${this.name} `, this.healthPoints);
-  this.healthPoints -= 3;
-  if (this.healthPoints <= 0) {
-    console.log(this.destroy());
-    return `${this.name} has lost all health points !! out of game!`;
-  } else {
-    return (
-      `${
-        this.name
-      } Used his shield - Lose 5 health points - Current health points ` +
-      this.healthPoints
-    );
-  }
-};
-
-function Hero(heroAttributes) {
-  Humanoid.call(this, heroAttributes);
-}
-
-Hero.prototype = Object.create(Humanoid.prototype);
-Hero.prototype.useCharm = function() {
-  console.log(`Current health points for ${this.name} ` + this.healthPoints);
-  this.healthPoints -= 5;
-  if (this.healthPoints <= 0) {
-    return `${this.name} has lost all health points !! out of game!`;
-  } else {
-    return (
-      `${
-        this.name
-      } used his charm - Lose 5 health points - Current health points ` +
-      this.healthPoints
-    );
-  }
-};
-
-// creating Villain
-const villain = new Villain({
-  createdAt: new Date(),
-  dimensions: {
-    length: 1,
-    width: 2,
-    height: 4
-  },
-  healthPoints: 13,
-  name: "Darth Vader",
-  team: "Forest Kingdom",
-  weapons: ["Bow", "laserbeam"],
-  language: "Elvish"
-});
-
-//creating Hero
-const hero = new Hero({
-  createdAt: new Date(),
-  dimensions: {
-    length: 1,
-    width: 2,
-    height: 4
-  },
-  healthPoints: 13,
-  name: "Yoda",
-  team: "Forest Kingdom",
-  weapons: ["Bow", "Force"],
-  language: "Elvish"
-});
-
-console.log(villain.useShield());
-console.log(hero.useCharm());
-console.log(villain.useShield());
-console.log(hero.useCharm());
-console.log(villain.useShield());
-console.log(hero.useCharm());
