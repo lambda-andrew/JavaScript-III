@@ -74,7 +74,7 @@ function CordialPerson(greeter) {
 
 // Principle 4
 // code example for Explicit Binding
-//call, apply, bind
+//call, apply, bind   
 
 var obj = {name:"Niladri"};
 
