@@ -59,6 +59,17 @@ CharacterStats.prototype.takeDamage = function(){
   return `${this.name} took damage.`;
 }
 
+function Humanoid(humAtt){
+  CharacterStats.call(this, humAtt);
+  this.team = humAtt.team;
+  this.weapons = humAtt.weapons;
+  this.language = humAtt.language;
+}
+
+Humanoid.prototype.greet = function(){
+  return `${this.name} offers a greeting in ${this.language}.`
+}
+
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
 /*
