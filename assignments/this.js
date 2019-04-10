@@ -35,7 +35,7 @@ const world = function(){
 const Dog = function(attribute){
     this.furColor = attribute.furColor
 }
-console.log (new Dog(fido))
+console.log (new Dog("fido"))
 
 // code example for New Binding
 
@@ -50,6 +50,10 @@ const bart = {
     }
   }
 
+function introduce(skill1, skill2) {
+return `Hello! my name is: ${this.name} and these are my skills: ${skill1}, ${skill2}`
+}
+  
 const skills = ["HTML", "CSS", "JS"]
 console.log(introduce.call(bart, ...skills));
 
