@@ -1,10 +1,11 @@
 /* The for principles of "this";
 * in your own words. explain the four principle for the "this" keyword below.
 *
-* 1. 
-* 2. 
-* 3. 
-* 4. 
+* 1. Window, when you dont point at anything the "this" keyword will point at the whole
+of the window you are operating your code in. AKA global scope.
+* 2. Implicit, when you are within a function
+* 3. New
+* 4. Explicit
 *
 * write out a code example of each explanation above
 */
