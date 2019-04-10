@@ -37,6 +37,8 @@ function CharacterStats(props){
   this.healthPoints = props.healthPoints;
 }
 
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function(){
   return (`${this.name} took damage.`);
 }
@@ -57,9 +59,13 @@ function Humanoid(props){
   this.language = props.language;
 }
 
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 Humanoid.prototype.greet = function(){
   return (`${this.name} offers a greeting in ${this.language}.`);
 }
+
+
 
 /*
   * Inheritance chain: GameObject -> CharacterStats -> Humanoid
