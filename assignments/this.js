@@ -13,14 +13,59 @@
 
 // code example for Window Binding
 
+console.log(this);
+
 // Principle 2
 
 // code example for Implicit Binding
 
+const person = {
+  name: 'James',
+  greet: function(){
+    return `Hello, my name is ${this.name}`
+  }
+}
+console.log(person.greet())
 // Principle 3
 
 // code example for New Binding
 
+function BigPerson(bigAtt){
+  this.name = bigAtt.name;
+  this.age = bigAtt.age;
+}
+
+BigPerson.prototype.hello = function(){
+  return `Hey, my name is ${this.name}`;
+}
+
+const guy = new BigPerson({
+  name: 'Mark',
+  age: 21
+});
+
+console.log(guy.hello());
+
+
 // Principle 4
 
 // code example for Explicit Binding
+
+const girl = {
+  name: 'Sarah',
+  age: 70,
+  greet: function(){
+    return `Hey, my name is ${this.name}`
+  }
+}
+
+const barista = {
+  name: 'Stephanie',
+  age: 23,
+  greet: function(){
+    return `Hey, my name is ${this.name}`
+  }
+}
+
+console.log(barista.greet.call(girl));
+console.log(girl.greet.apply(barista));
